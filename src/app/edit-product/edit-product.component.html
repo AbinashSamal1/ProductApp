@@ -1,0 +1,138 @@
+<app-product-navbar></app-product-navbar>
+<section class="body vh-100">
+  <div class="container">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-lg-12 col-xl-11 mt-5">
+        <div class="card text-black mt-5 bady shadow-lg p-3 mb-5 bg-white" style="border-radius: 25px">
+          <div class="card-body">
+            <form [formGroup]="editProduct" (ngSubmit)="updation()">
+              <div>
+                <label for="productname" class="form-label">Product Name</label>
+                <input
+                  type="productname"
+                  class="form-control"
+                  id="productname"
+                  formControlName="productName"
+                />
+              </div>
+              <div
+                class="text-danger form-text"
+                *ngIf="productName.errors?.['required']&&(productName.touched||productName.dirty)"
+              >
+                *Enter Product name here
+              </div>
+              <div class="mb-3 mt-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea
+                  type="description"
+                  class="form-control"
+                  id="description"
+                  formControlName="description"
+                ></textarea>
+              </div>
+
+              <div
+                class="form-text text-danger"
+                *ngIf="description.errors?.['required']&&(description.touched|| description.dirty)"
+              >
+                *Please Provide description for the product
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="mb-3">
+                    <label for="price" class="form-label">price</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="price"
+                      formControlName="price"
+                    />
+                  </div>
+                  <div
+                    class="form-text text-danger"
+                    *ngIf="price.errors?.['required']&&(price.touched|| price.dirty)"
+                  >
+                    *Price is missing
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="mb-3">
+                    <label for="rating" class="form-label">Rating</label>
+                    <input
+                      type="rating"
+                      class="form-control"
+                      id="rating"
+                      formControlName="rating"
+                    />
+                  </div>
+                  <div
+                    class="form-text text-danger"
+                    *ngIf="rating.errors?.['ratingRange']&&(rating.touched|| rating.dirty)"
+                  >
+                    *Please Provide rating in range of 1-5
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div
+                    class="form-text text-danger"
+                    *ngIf="rating.errors?.['required']&&(rating.touched|| rating.dirty)"
+                  >
+                    *Please Provide rating
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="datepicker" class="form-label"
+                      >Release Date</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="releaseDate"
+                      formControlName="releaseDate"
+                    />
+                  </div>
+                  <div
+                    class="form-text text-danger"
+                    *ngIf="releaseDate.errors?.['required']&&(releaseDate.touched|| releaseDate.dirty)"
+                  >
+                    *Please Provide release date
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="image" class="form-label">Image</label>
+                <input
+                  type="url"
+                  class="form-control"
+                  id="image"
+                  formControlName="imageUrl"
+                />
+              </div>
+              <div
+                class="form-text text-danger"
+                *ngIf="imageUrl.errors?.['required']&&(imageUrl.touched|| imageUrl.dirty)"
+              >
+                *Please Provide image
+              </div>
+              <div
+                class="form-text text-danger"
+                *ngIf="imageUrl.errors?.['invalidUrl']&&(imageUrl.touched|| imageUrl.dirty)"
+              >
+                *Image Url missing
+              </div>
+              <div class="text-center">
+                <button
+                  type="submit"
+                  class="btn btn-primary mt-3"
+                  (click)="editProdSuccess()"
+                >
+                  Update
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

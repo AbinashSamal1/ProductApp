@@ -1,0 +1,54 @@
+<app-product-navbar></app-product-navbar>
+<section class="vh-100 body" *ngIf="productList !== undefined">
+  <div class="container">
+    <div class="row d-flex justify-content-center align-items-center">
+      <div class="col-lg-12 col-xl-11 mt-5">
+        <div
+          class="card w-100 text-black bady shadow-lg p-3 mb-5 bg-white"
+          style="border-radius: 35px"
+        >
+          <div class="card-body">
+            <div class="row justify-content-center">
+              <div class="order-2 order-lg-1">
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
+                  <u class="text-warning"> {{ productList.productName }}</u>
+                </p>
+                <div class="row g-2">
+                  <div class="col-6">
+                    <img
+                      src="{{ productList.imageUrl }}"
+                      alt=""
+                      style="max-width: 100%"
+                    />
+                  </div>
+                  <div class="col">
+                    <p>
+                      <span class="h5"> Details:</span
+                      >{{ productList.description }}
+                    </p>
+                    <p>
+                      <span class="h5"> Price:</span
+                      ><u class="text-danger">{{
+                        productList.price | currency: "INR"
+                      }}</u>
+                    </p>
+                    <p>
+                      <span class="h5"> Rating:</span
+                      ><span class="text-danger">{{
+                        productList.rating | number: "1.1-1"
+                      }}</span>
+                    </p>
+                    <p>
+                      <span class="h5"> Release Date:</span
+                      >{{ productList.releaseDate | date: "d MMM, y, h:mm a" }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

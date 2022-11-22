@@ -1,0 +1,27 @@
+.body {
+  background-image: url("https://freevector-images.s3.amazonaws.com/uploads/vector/preview/40490/vecteezy_background-white_fj1220.jpg");
+}
+.text {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: tomato;
+  text-decoration: antiquewhite;
+}
+.bg {
+  display: block;
+  background-color:transparent;
+  text-align: center;
+}
+
+.info {
+  padding: 0px 3px 3px 3px;
+  color: #e83188;
+  border-radius: 50%;
+  border: solid 3px #e83188;
+  width: 20px;
+  height: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+.icon {
+  background-image: url("https://static.vecteezy.com/system/resources/previews/003/127/950/non_2x/abstract-soft-blue-background-with-dynamic-waves-shape-free-vector.jpg");
+}

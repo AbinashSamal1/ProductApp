@@ -1,0 +1,90 @@
+<!-- Nav tabs -->
+<div class="">
+  <ul
+    class="container-fluid nav nav-tabs bg-light fixed-top justify-content-between body"
+    id="myTab"
+    role="tablist"
+  >
+    <li class="nav-item row" role="presentation">
+      <button
+        class="nav-link col"
+        id="home-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#home"
+        type="button"
+        role="tab"
+        aria-controls="home"
+        aria-selected="true"
+        routerLink="/products"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        Home
+      </button>
+      <button
+        *ngIf="isLoggedIn()"
+        class="nav-link col"
+        id="messages-tab"
+        data-bs-toggle="tab"
+        data-bs-target="#messages"
+        type="button"
+        role="tab"
+        aria-controls="messages"
+        aria-selected="false"
+        routerLink="/products/new"
+        routerLinkActive="active"
+      >
+        Add
+      </button>
+    </li>
+
+    <div class="row">
+      <div class="text-primary col">
+        <div *ngIf="isLoggedIn()" class="dropdown bg mt-1" dropdown>
+          <span
+            class="info dropdown-toggle text"
+            dropdownToggle
+            (click)="(false)"
+            >i</span
+          >
+          <div class="dropdown-menu icon" *dropdownMenu>
+            <p class="text-start">
+              UserId:&nbsp;<em
+                ><mark>{{ userId }}</mark></em
+              >
+            </p>
+            <p class="text-start">
+              Name:&nbsp;<em
+                ><mark>{{ firstName }}&nbsp;{{ lastName }}</mark></em
+              >
+            </p>
+            <p class="text-start">
+              Email:&nbsp;<em
+                ><mark>{{ email }}</mark></em
+              >
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="dropdown mr-5" *ngIf="isLoggedIn()" dropdown>
+          <a
+            href=""
+            class="dropdown-toggle text"
+            dropdownToggle
+            (click)="(false)"
+          >
+            Welcome &nbsp;&nbsp;{{ userName }}
+          </a>
+          <div class="dropdown-menu btn bg-light" *dropdownMenu>
+            <a (click)="logout()" class="dropdown-item btn">
+              <i class="fas fa-sign-out-alt"></i>
+              Logout
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ul>
+</div>

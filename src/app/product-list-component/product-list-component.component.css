@@ -1,0 +1,38 @@
+.body{
+  background-image: url('https://freevector-images.s3.amazonaws.com/uploads/vector/preview/40490/vecteezy_background-white_fj1220.jpg');
+}
+.cardbg{
+background-image: url('https://media.istockphoto.com/vectors/wavy-abstract-backgrounds-for-design-of-web-banners-packaging-posters-vector-id1211961939?b=1&k=20&m=1211961939&s=170667a&w=0&h=zAfk6widLaz3ZWrpUdxHi1ez_8_5aO2W2wA8fvhs9QE=');
+}
+.itemdata {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100ch;
+}
+.card {
+  padding: 20px;
+  margin: 50px;
+  border-radius: 30px;  
+}
+.card img {
+  width: 200px;
+  height: 150px;
+  margin-bottom: 15px;
+  transition: 0.3s ease-in-out;
+}
+.card img:hover {
+  transition: 0.3s ease-in-out;
+  transform: scale(1.1);
+}
+.card-body :hover{
+transition: 0.5s ease-in-out;
+transform: scale(1.1);
+}
+.title :hover{
+  transition: 0.5s ease-in-out;
+transform: scale(1.1);
+}
+ngb-rating {
+  color: #ffc107;
+  font-size: 30px;
+}

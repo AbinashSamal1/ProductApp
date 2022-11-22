@@ -1,0 +1,92 @@
+<app-product-navbar></app-product-navbar>
+<div class="container-fluid body">
+  <div class="row">
+    <ng-container *ngFor="let item of productList">
+      <div class="card card-sm mx-auto shadow-lg p-3 mb-5 bg-white" style="width: 16rem">
+        <img
+          class="card-img-top"
+          src="{{ item.imageUrl }}"
+          alt="Card image cap"
+        />
+        <div class="card-body">
+          <div class="title">
+          <a
+            class="card-title itemdata badge rounded-pil bg-warning text-wrap"
+            [title]="item.productName + ' details'"
+            routerLink="/products/{{ item.productId }}/details"
+          >
+            {{ item.productName | uppercase }}
+          </a>
+          </div>
+          <div class="card-text ">
+            <div class="itemdata mt-3 text-nowrap">
+              <span class="h6"> Product details:</span> {{ item.description }}
+            </div>
+            <div><span class="h6">ID:</span> {{ item.productId }}</div>
+            <div><span class="h6"> Price:</span> ₹{{ item.price }}</div>
+            <div><span class="h6">Rating:</span>{{ item.rating }}</div>
+            <div>
+              <span class="h6"> Created Date:</span
+              >{{ item.createdDate | date: "d MMM, y, h:mm a" }}
+            </div>
+            <div>
+              <span class="h6"> Release Date:</span
+              >{{ item.releaseDate | date: "d MMM, y, h:mm a" }}
+            </div>
+            <div>
+              <span class="h6"> Last Update Date:</span
+              >{{ item.lastUpdatedDate | date: "d MMM, y, h:mm a" }}
+            </div>
+            <div><span class="h6">Active:</span>{{ item.isActive }}</div>
+          </div>
+          <div>
+            <div *ngIf="item.isActive == true; else elseBlock">
+              <button
+                href=""
+                class="btn btn-outline-danger btn-sm mt-3"
+                (click)="onDeactivateProduct(item.productId, item.productName)"
+              >
+                Deactivate
+              </button>
+            </div>
+            <ng-template #elseBlock>
+              <button
+                href=""
+                class="btn btn-outline-primary btn-sm mt-3"
+                (click)="onReactiveProduct(item.productId, item.productName)"
+              >
+                Activate
+              </button>
+            </ng-template>
+          </div>
+
+          <div class="mt-2 row">
+            <div class="col-md-4">
+              <button
+                href="../edit-product/edit-product.component.html"
+                class="badge bg-primary border-primary m-1"
+                routerLink="/products/{{ item.productId }}/edit"
+              >
+                Edit
+              </button>
+            </div>
+            <div class="col-md-4">
+              <button
+                href=""
+                class="badge bg-danger border-danger m-1"
+                (click)="onDeleteProduct(item.productId, item.productName)"
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="">
+    <button class="btn btn-dark w-100" (click)="loadMore()" *ngIf="display">
+      Load More >>
+    </button>
+  </div>
+</div>
